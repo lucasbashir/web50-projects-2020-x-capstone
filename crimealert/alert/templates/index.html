@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block body %} 
+
+
+<h2 class="intro"><span class="green">Welcome </span><span class="white">To </span><span class="green">Nigeria's </span><span class="green">Crime </span><span class="white">Alert </span><span class="green">Website</span> </h2>
+
+<div class="container-fluid">
+ <div class="alerts">
+    <h6>To post a new alert, <a href="{% url 'new_alert' %}">click here</a></h6>
+    <br>
+    <h6>To view all alerts, <a href="{% url 'all_alerts' %}">click here</a></h6>
+ </div>  
+ 
+ <div class="about">
+    <h2>About Crime Alert</h2>
+    <div id="about_content">
+        <p>It is our believe that combatting crime in our community is a collective resposibility.</p>
+        <p>Crime is systemic and should be tackled using a systemic approach where everyone plays an</p>
+        <p>active role in fighting crime.</p>
+        <p>This website gives all citizens the privilege to report crimes in their vicinity</p>
+    </div>
+ </div>
+
+    <div class="howto">
+        <h2>How To Use</h2>
+        <div>
+        <p>Our website is very easy to use. Users are required to <a href="{% url 'new_alert' %}">make a new post</a> to</p>
+        <p>raise an alert. They new alert page prompots users for the crime details including 
+        <p>latitudes and longitudes. Users can also view past and new crime alerts <a href="{% url 'all_alerts' %}">here</a></p>
+        <p>Included in the footer section are contact information users can take advantage of</p>
+        </div>
+    </div>
+
+    <div class="data">
+        <h3>Your Location Matters</h3>
+        <div>
+            <p>We use crime locations to collect data that helps understand how crimes work</p>
+            <p>Crime data are stored in our databse to keep track of what crimes are prevalent</p>
+            <p>in a particular location This helps law enforcement offices to tackle crimes more</p>
+            <p>effectively.</p>
+        </div>
+    </div>
+</div>
+
+   
+  
+  <!-- Footer -->
+  <footer>
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Follow our social media accounts:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a  href="google.com" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    Copyright © 2023:
+      <a class="text-reset fw-bold" href="">Samson Lukman</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+{% endblock %}

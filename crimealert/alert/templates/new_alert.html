@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+
+<form action="{% url 'new_alert' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <textarea class="create-post-text" name="content" placeholder="Report crime"></textarea>
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="location" placeholder="Where are you reporting from?">
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="longitude" placeholder="Enter Longitude (Example: 122.4194° W)">
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="latitude" placeholder="Enter Latitude (Example: 122.4194° W)">
+    </div>
+    <input class="btn btn-danger" id="newalert" type="submit" value="Alert!">
+     
+</form>
+
+
+{% endblock %}

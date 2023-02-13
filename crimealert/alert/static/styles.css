@@ -1,0 +1,81 @@
+.intro {
+    background-color: black;
+    text-align: center;
+    margin-top: 20px;
+    font-family: Lato;
+    position: relative;
+    white-space: nowrap;
+    animation: scroll-left 30s linear infinite;
+
+}
+
+@keyframes scroll-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+}
+.intro .green {
+    color: green;
+    
+}
+
+.intro .white {
+    color: white;
+}
+footer {
+    background-color: black;
+    color: white;
+
+}
+
+#navbarNav {
+    
+}
+
+.body {
+    font-family:      Verdana, Geneva, Arial, sans-serif;
+    font-size:        medium;
+    background-color: white;
+    
+}
+
+.alerts {
+    
+    margin-top: 20px;
+    border: 1px solid red;
+    border-top: 2px dotted red;
+        border-right: 5px solid green;
+        border-bottom: 3px dashed blue;
+        border-left: 4px double yellow;
+    padding: auto;
+    background-color: blue;
+    color: gold;
+    
+}
+
+.about {
+    margin-top: 20px;
+    border: 1px solid red;
+    padding: auto;
+    background-color: blue;
+    color: gold;
+}
+
+.howto {
+    margin-top: 20px;
+    border: 1px solid blue;
+    padding: auto;
+    background-color: blue;
+    color: gold;
+}
+
+.data {
+    margin-top: 20px;
+    border: 1px solid blue;
+    padding: auto;
+    background-color: blue;
+    color: gold;
+}
