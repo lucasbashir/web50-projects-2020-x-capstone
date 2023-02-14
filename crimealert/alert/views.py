@@ -20,19 +20,7 @@ def all_alerts(request):
         "alert": alert
     })
 
-def new_post_alert(request):
-    # your logic to create a new post
 
-    # send message to WebSocket
-    channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)(
-        'new_post_alert', {
-            'type': 'alert.message',
-            'message': 'A new post has been created!'
-        }
-    )
-
-    return HttpResponse('New post created')
 
 def new_alert(request):
     if request.method == "GET":

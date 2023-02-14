@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'alert',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -70,7 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crimealert.wsgi.application'
-ASGI_APPLICATION = 'crimealert.routing.application'
+
 
 
 # Database
