@@ -11,6 +11,7 @@ from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync 
 
 
+
 def index(request):
    return render(request, "index.html")
 
@@ -28,21 +29,14 @@ def new_alert(request):
     else:
         content = request.POST["content"]
         location = request.POST["location"] 
-        longitude = request.POST["longitude"]
-        latitude = request.POST["latitude"] 
+        category = request.POST["category"]
         current_user = request.user 
 
-        longitude_pattern = re.compile(r'^[-+]?(180(\.0+)?|(1[0-7]\d|[1-9]?\d)(\.\d+)?)$')
-        latitude_pattern = re.compile(r'^[-+]?(90(\.0+)?|[1-8]?\d(\.\d+)?)$')
-
-        if longitude_pattern.match(longitude) and latitude_pattern.match(latitude):
-
-            new_alert = Alert(content=content, location=location, longitude=longitude, latitude=latitude, user=current_user)
-            new_alert.save()   
-            return HttpResponseRedirect(reverse("all_alerts"))
-        else:
-            # Add a proper error message
-            return HttpResponse("Invalid longitude or latitude. Please provide a valid longitude and latitude.")
+        new_alert = Alert(content=content, location=location, user=current_user, category=category)
+        new_alert.save()   
+        return HttpResponseRedirect(reverse("all_alerts"))
+        
+            
         
 
 

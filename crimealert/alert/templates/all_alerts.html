@@ -3,12 +3,11 @@
 {% block body %}
 {% for data in alert %}
 
-<div style="margin: 20px 0; padding: 20px; background-color: #f2f2f2; border-radius: 10px;">
+<div class="post" style="margin: 20px 0; padding: 20px;  border-radius: 10px;">
   <h3 style="margin: 0 0 10px 0;">{{data.user}} made a crime alert!</h3>
   <p style="margin: 0 0 10px 0;">Alert!!! {{data.content}} !!!</p>
   <p style="margin: 0 0 10px 0;"><strong> Crime reported from</strong> {{data.location}}</p>
-  <p style="margin: 0 0 10px 0;"><strong>Additional info: Longitude:</strong> {{data.longitude}}, <strong>Latitude: </strong>{{data.latitude}}</p>
-  
+  <p>{{data.timestamp}}</p>
 </div>
 {% endfor %}
 {% endblock %}

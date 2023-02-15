@@ -79,3 +79,29 @@ footer {
     background-color: blue;
     color: gold;
 }
+
+.image {
+    margin-top: 20px;
+    border-top: 5px dashed white;
+        border-right: 5px solid green;
+        border-bottom: 5px dashed white;
+        border-left: 5px double green;
+    padding: auto;
+    background-color: green;
+    color: gold;
+    height: fit-content;
+    width: fit-content;
+}
+
+.crimeicon {
+    height: fit-content;
+    width: fit-content;
+    
+}
+
+.post {
+    border: 3px solid red;
+    padding: auto;
+    background-color: black;
+    color: green;
+}

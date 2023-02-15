@@ -11,8 +11,7 @@ class Alert(models.Model):
     content = models.TextField(blank=False, null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     location = models.CharField(max_length=100, blank=False)
-    latitude = models.CharField(max_length=20, blank=True, null=False)
-    longitude = models.CharField(max_length=20, blank=True, null=False)
+    category = models.CharField(max_length=50, blank = False, null=False)
     
 
     def __str__(self):
