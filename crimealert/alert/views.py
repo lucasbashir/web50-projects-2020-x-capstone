@@ -9,11 +9,27 @@ import json
 import re
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync 
+from .consumers import NotificationConsumer
 
 
 
 def index(request):
    return render(request, "index.html")
+
+def notification(request):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_add)("notification", request.websocket)
+    request.websocket.send(json.dumps({'message': 'Connected'}).encode())
+
+    while True:
+        try:
+            message = request.websocket.receive()
+            async_to_sync(channel_layer.group_send)("notification", {"type": "send.notification", "message": message})
+        except:
+            async_to_sync(channel_layer.group_discard)("notification", request.websocket)
+            break
+
+    return HttpResponse("HI")
 
 def all_alerts(request):
     alert = Alert.objects.all()
@@ -21,23 +37,19 @@ def all_alerts(request):
         "alert": alert
     })
 
-
-
 def new_alert(request):
     if request.method == "GET":
         return render(request, "new_alert.html")
     else:
         content = request.POST["content"]
-        location = request.POST["location"] 
+        location = request.POST["location"]
         category = request.POST["category"]
-        current_user = request.user 
+        current_user = request.user
 
+        # Create a new alert
         new_alert = Alert(content=content, location=location, user=current_user, category=category)
-        new_alert.save()   
+        new_alert.save()
         return HttpResponseRedirect(reverse("all_alerts"))
-        
-            
-        
 
 
 def logout_view(request):

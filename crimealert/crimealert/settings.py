@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +70,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crimealert.wsgi.application'
+ASGI_APPLICATION = "crimealert.routing.application" 
 
+# Django Channels
+# Adding Django Channel Layers
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("172.26.40.89", 6379)],
+        },
+    },
+}
 
 
 # Database
