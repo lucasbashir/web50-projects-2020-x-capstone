@@ -17,6 +17,17 @@
       transform: translateX(-100%);
     }
 }
+
+#create-post-text {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 4px solid red;
+    border-radius: 5px;
+    resize: none;
+  }
+
+
 .intro .green {
     color: green;
     
@@ -48,33 +59,35 @@ footer {
         border-bottom: 3px dashed blue;
         border-left: 4px double yellow;
     padding: auto;
-    background-color: blue;
-    color: gold;
+    background-color: red;
+    color: white;
     
 }
 
+
+
 .about {
     margin-top: 20px;
-    border: 1px solid red;
+    border: 4px solid yellow;
     padding: auto;
-    background-color: blue;
-    color: gold;
+    background-color: red;
+    color: white;
 }
 
 .howto {
     margin-top: 20px;
-    border: 1px solid blue;
+    border: 4px solid yellow;
     padding: auto;
-    background-color: blue;
-    color: gold;
+    background-color: red;
+    color: white;
 }
 
 .data {
     margin-top: 20px;
-    border: 1px solid blue;
+    border: 4px solid yellow;
     padding: auto;
-    background-color: blue;
-    color: gold;
+    background-color: red;
+    color: white;
 }
 
 .image {
@@ -85,7 +98,7 @@ footer {
         border-left: 5px double green;
     padding: auto;
     background-color: green;
-    color: gold;
+    color: white;
     height: fit-content;
     width: fit-content;
 }

@@ -3,6 +3,7 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.contrib.auth.models import User
 from .models import *
 import requests
 import json
@@ -10,6 +11,7 @@ import re
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync 
 from .consumers import NotificationConsumer
+from django.core.paginator import Paginator
 
 
 
@@ -32,9 +34,14 @@ def notification(request):
     return HttpResponse("HI")
 
 def all_alerts(request):
-    alert = Alert.objects.all()
+    alert = Alert.objects.all().order_by("id").reverse()
+    paginator = Paginator(alert, 10) # Show 10 posts per page.
+    page_number = request.GET.get('page')
+    page_post = paginator.get_page(page_number)
+
     return render(request, "all_alerts.html", {
-        "alert": alert
+        "alert": alert,
+        "page_post": page_post
     })
 
 def new_alert(request):
@@ -42,12 +49,13 @@ def new_alert(request):
         return render(request, "new_alert.html")
     else:
         content = request.POST["content"]
-        location = request.POST["location"]
+        state = request.POST["state"]
+        lga = request.POST["lga"]
         category = request.POST["category"]
         current_user = request.user
 
         # Create a new alert
-        new_alert = Alert(content=content, location=location, user=current_user, category=category)
+        new_alert = Alert(content=content, state=state, lga=lga, user=current_user, category=category)
         new_alert.save()
         return HttpResponseRedirect(reverse("all_alerts"))
 
@@ -70,6 +78,7 @@ def login_view(request):
             "message": "Invalid username and/or password"
         })
 
+
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -82,14 +91,26 @@ def register(request):
                 "message": "Passwords must match"
             })
 
-        try:
-            user = User.objects.create_user(username, email, password)
-            user.save()
-        except IntegrityError:
+        if not (username and email and password):
             return render(request, "register.html", {
-                "message": "Username already taken."
+                "message": "Please fill in all fields."
             })
-        login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+
+        # Check if the email address already exists in the database
+        if User.objects.filter(email=email).exists():
+            return render(request, "register.html", {
+                "message": "Email already taken."
+            })
+
+        # Create a new user account if the email is unique
+        try:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            login(request, user)
+            return HttpResponseRedirect(reverse("index"))
+        except IntegrityError as e:
+            if 'unique constraint' in str(e).lower() and 'username' in str(e).lower():
+                return render(request, "register.html", {
+                    "message": "Username already taken."
+                })
     else:
         return render(request, "register.html")
