@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% for data in page_post %}
+
+<div class="post" style="margin: 20px 0; padding: 20px;  border-radius: 10px;">
+  <h3 style="margin: 0 0 10px 0;"><strong>{{data.user}}</strong> posted a crime alert!</h3>
+  <p style="margin: 0 0 10px 0;">Alert!!! {{data.content}} !!!</p>
+  <p style="margin: 0 0 10px 0;"><strong> Crime reported from</strong> {{data.lga}}, {{data.state}}</p>
+  <p>{{data.timestamp}}</p>
+</div>
+
+{% endfor %}
+
+<!-- Pagination for navigating through the posts -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination d-flex justify-content-center">
+  {% if page_post.has_previous %}
+  <!-- If there is a previous page, display a "previous" button -->
+  <li class="page-item"><a class="page-link" href="?page={{page_post.previous_page_number}}">Previous</a></li>
+  {% endif %}
+  {% if page_post.has_next %}
+  <!-- If there is a next page, display a "next" button -->
+  <li class="page-item"><a class="page-link" href="?page={{page_post.next_page_number}}">Next</a></li>
+  {% endif %}
+  </ul>
+</nav>
+{% endblock %}

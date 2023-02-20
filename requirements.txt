@@ -1,0 +1,10 @@
+Prerequisites
+To run this project, you will need to install Python 3.x and Django 3.x on your local machine.
+It is also recommended to have some basic understanding of Python and Django Framework.
+
+Installation
+
+Clone the repository to your local machine using git clone https://github.com/username/Django-Crime-Alert-System.git
+Create a virtual environment using python -m venv env and activate it by running source env/bin/activate on MacOS/Linux or env\Scripts\activate.bat on Windows.
+Install the project dependencies using pip install -r requirements.txt
+Run the project using python manage.py runserver

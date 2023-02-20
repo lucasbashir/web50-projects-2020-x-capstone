@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %} 
+
+
+<h2 class="intro"><strong></strong><span class="green">Welcome </span><span class="white">To </span><span class="green">Nigeria's </span><span class="green">Crime </span><span class="white">Alert </span><span class="green">Website</span></strong> </h2>
+
+{% if user.is_authenticated %}
+<div class="container-fluid">
+ <div class="alerts">
+    <h6><strong>Post a new alert, </strong><a href="{% url 'new_alert' %}">click here</a></h6>
+    <br>
+    <h6><strong>To view all alerts, </strong><a href="{% url 'all_alerts' %}">click here</a></h6>
+ </div> 
+ 
+ {% endif %}
+
+ <div class="image">
+  <img src="{% static 'alert.jpg' %}">
+  <img src="{% static 'flag.jpg' %}">
+</div>
+
+ 
+ <div class="about">
+    <h2><strong>About Crime Alert</strong></h2>
+    <br>
+    <div id="about_content">
+        <p>It is our believe that combatting crime in our community is a collective resposibility.</p>
+        <p>Crime is systemic and should be tackled using a systemic approach where everyone plays an</p>
+        <p>active role in fighting it.</p>
+        <p>This website gives all citizens the privilege to report crimes in their vicinity</p>
+    </div>
+ </div>
+
+ 
+ <div style="display:flex; align-items:center; background-color: black; color: white; font: bold; font-family: oswald;">
+  <img src="{% static 'crime.jpg' %}" style="width:20%; margin-right:300px;">
+  <div style="text-align: justify">
+    <p style="text-align: center;">Five ways to stay away from crime:</p>
+    <ol>
+      <li>Stay aware of your surroundings and trust your instincts.</li>
+      <li>Keep your doors and windows locked, and don't open them for strangers.</li>
+      <li>Avoid walking alone in unsafe areas, especially at night.</li>
+      <li>Don't carry large amounts of cash or valuables with you.</li>
+      <li>Get involved in your community and support crime prevention programs.</li>
+    </ol>
+  </div>
+</div>
+    
+  
+
+    <div class="howto">
+        <h2><strong>How To Use</strong></h2>
+        <br>
+        <div>
+        <p>Our website is very easy to use. Users are required to <a href="{% url 'new_alert' %}">make a new post</a> to</p>
+        <p>raise an alert. They new alert page prompots users for the crime details including their States and
+        <p>Local Goverment Areas. Users can also view past and new crime alerts <a href="{% url 'all_alerts' %}">here</a></p>
+        <p>Included in the footer section are contact information users can take advantage of</p>
+        </div>
+    </div>
+
+    <div class="data">
+        <h3>Your Location Matters</h3>
+        <div>
+            <p>We use crime locations to collect data that helps understand how crimes work</p>
+            <p>Crime data are stored in our databse to keep track of what crimes are prevalent</p>
+            <p>in a particular location. This helps law enforcement organizations to tackle crimes more</p>
+            <p>effectively.</p>
+        </div>
+    </div>
+</div>
+
+   
+  
+  
+
+{% endblock %}
