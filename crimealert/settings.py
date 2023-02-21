@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0zn4_8dvxrq6t7cj5e5&hqs4(xn8oz%4*&(e2+^6kj@-q*%*jj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
+    
 ]
 
 MIDDLEWARE = [
@@ -70,19 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crimealert.wsgi.application'
-ASGI_APPLICATION = "crimealert.routing.application" 
 
-# Django Channels
-# Adding Django Channel Layers
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("172.26.40.89", 6379)],
-        },
-    },
-}
 
 
 # Database
