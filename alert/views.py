@@ -5,12 +5,11 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import *
-import requests
+
 import json
 import re
-from channels.layers import get_channel_layer
-from asgiref.sync import async_to_sync 
-from .consumers import NotificationConsumer
+
+
 from django.core.paginator import Paginator
 
 
@@ -18,20 +17,6 @@ from django.core.paginator import Paginator
 def index(request):
    return render(request, "index.html")
 
-def notification(request):
-    channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_add)("notification", request.websocket)
-    request.websocket.send(json.dumps({'message': 'Connected'}).encode())
-
-    while True:
-        try:
-            message = request.websocket.receive()
-            async_to_sync(channel_layer.group_send)("notification", {"type": "send.notification", "message": message})
-        except:
-            async_to_sync(channel_layer.group_discard)("notification", request.websocket)
-            break
-
-    return HttpResponse("HI")
 
 def all_alerts(request):
     alert = Alert.objects.all().order_by("id").reverse()
