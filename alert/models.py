@@ -12,9 +12,12 @@ class Alert(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=100, blank=False)
     lga = models.CharField(max_length=100, blank=False)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
+    
     
     category = models.CharField(max_length=50, blank = False, null=False)
     
 
     def __str__(self):
-        return f"New crime alert from {self.user} from {self.state}, {self.lga}"
+        return f"New crime alert from {self.user} from {self.state}, {self.lga} and coordinates longitude:{self.longitude} and latitude:{self.latitude}"

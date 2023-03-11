@@ -4,10 +4,11 @@
 <html lang="en">
     <head>
       <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, width=device-width">
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <link href="{% static 'styles.css' %}" rel="stylesheet">
         <script src="{% static 'crime.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
         <!-- http://getbootstrap.com/docs/5.1/ -->
@@ -16,19 +17,21 @@
         <title>{% block title %}Crime Alert{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  
+
+
     </head>
 
     <body class="bg-warning" style="font-family: oswald;">
-     
-      <nav class="navbar navbar-expand-lg bg-warning">
+
+      <nav class="navbar navbar-expand-lg navbar-expand-md bg-warning">
+
         <a class="navbar-brand" href="{% url 'index' %}">Crime Alert</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarNav">
-          
+
           <ul class="navbar-nav">
             {% if user.is_authenticated %}
             <li class="nav-item">
@@ -44,27 +47,27 @@
               <a class="nav-link" href="#">Contact</a>
             </li>
             {% else %}
-            
-              
+
+
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>   
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
           {% endif %}
-          
+
           </ul>
-         
+
         </div>
       </nav>
-     
-      
+
+
 
       {% block body %}
-      
-      {% endblock %}  
-    
+
+      {% endblock %}
+
       <!-- Footer -->
   <footer>
     <!-- Section: Social media -->
@@ -74,7 +77,7 @@
         <span>Follow our social media accounts:</span>
       </div>
       <!-- Left -->
-  
+
       <!-- Right -->
       <div>
         <a  href="google.com" class="me-4 text-reset">
@@ -99,7 +102,7 @@
       <!-- Right -->
     </section>
     <!-- Section: Social media -->
-  
+
     <!-- Section: Links  -->
     <section class="">
       <div class="container text-center text-md-start mt-5">
@@ -118,7 +121,7 @@
             </p>
           </div>
           <!-- Grid column -->
-  
+
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
@@ -139,11 +142,11 @@
             </p>
           </div>
           <!-- Grid column -->
-  
+
           <!-- Grid column -->
-          
+
           <!-- Grid column -->
-  
+
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
@@ -162,7 +165,7 @@
       </div>
     </section>
     <!-- Section: Links  -->
-  
+
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     Copyright © 2023:
@@ -171,5 +174,54 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      // Display confirmation prompt
+      if (confirm("Allow this website to access your location?")) {
+        navigator.geolocation.getCurrentPosition(sendLocation);
+      } else {
+        alert("Location access denied.");
+      }
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function sendLocation(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+
+    console.log("Sending data: ", { lat: lat, lng: lng });
+
+    // Get the CSRF token from the form
+    var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    // Get the form data using FormData
+    var form_data = new FormData(document.querySelector('#form-id'));
+
+    // Add the lat and lng values to the form data
+    form_data.append('lat', lat);
+    form_data.append('lng', lng);
+
+    // Send the AJAX request with the form data
+    $.ajax({
+      url: 'new_alert',
+      type: 'POST',
+      data: form_data,
+      contentType: false,
+      processData: false,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRFToken', csrftoken);
+      },
+      error: function (xhr, status, error) {
+        alert('Fill the fields before submitting Alert');
+      }
+    });
+  }
+
+
+</script>
+
     </body>
 </html>

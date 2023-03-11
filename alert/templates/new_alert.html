@@ -4,8 +4,7 @@
 
 {% block body %}
 
-
-<form action="{% url 'new_alert' %}" method="POST">
+<form id="form-id" action="{% url 'new_alert' %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
         <textarea id="create-post-text" name="content" placeholder="Report crime" required></textarea>
@@ -62,8 +61,9 @@
     <div class="form-group">
         <input class="form-control" name="category" placeholder="Specify a category. For example, murder, theft, vandalism, etc" required>
     </div>
-    <input class="btn btn-danger" id="newalert" type="submit" value="Alert!">
-     
+
+    <button class="btn btn-danger" id="newalert">Alert</button>
+
 </form>
 
 

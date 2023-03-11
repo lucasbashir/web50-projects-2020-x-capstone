@@ -5,8 +5,9 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import *
-
-import json
+from django.templatetags.static import static
+from .models import Alert
+import os
 import re
 
 
@@ -30,19 +31,23 @@ def all_alerts(request):
     })
 
 def new_alert(request):
-    if request.method == "GET":
-        return render(request, "new_alert.html")
-    else:
-        content = request.POST["content"]
-        state = request.POST["state"]
-        lga = request.POST["lga"]
-        category = request.POST["category"]
+    if request.method == "POST":
+        content = request.POST.get("content")
+        state = request.POST.get("state")
+        lga = request.POST.get("lga")
+        category = request.POST.get("category")
         current_user = request.user
-
+        lat = request.POST.get("lat")
+        lng = request.POST.get("lng")
         # Create a new alert
-        new_alert = Alert(content=content, state=state, lga=lga, user=current_user, category=category)
+        new_alert = Alert(content=content, state=state, lga=lga, user=current_user, category=category, latitude=lat, longitude=lng)
         new_alert.save()
         return HttpResponseRedirect(reverse("all_alerts"))
+    else:
+        return render(request, "new_alert.html")
+
+
+
 
 
 def logout_view(request):

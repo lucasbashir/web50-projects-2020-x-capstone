@@ -8,6 +8,7 @@ urlpatterns = [
     path("logout", views.logout_view, name="logout"),
     path("new_alert", views.new_alert, name="new_alert"),
     path("all_alerts", views.all_alerts, name="all_alerts"),
-    
+
+
 
 ]
