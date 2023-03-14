@@ -1,0 +1,114 @@
+[33mcommit 3bab26bbdcc551c6532fedfddd3c2e0028d20a8d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 2f77847 c2e914d
+Author: lucasbashir <lucassamson24@gmail.com>
+Date:   Sun Mar 12 00:03:53 2023 +0000
+
+    Attempting to merge without pycahe
+
+[33mcommit 2f7784740710be5db5c30d07bdd819feb1edbc03[m
+Author: lucasbashir <lucassamson24@gmail.com>
+Date:   Sat Mar 11 23:16:17 2023 +0000
+
+    merging locating function suspension
+
+[33mcommit b85e93f99a924953abda98e4a03d4c13cdd17285[m
+Author: lucasbashir <lucassamson24@gmail.com>
+Date:   Sat Mar 11 21:13:29 2023 +0000
+
+    Added Geolocation function but removed the onclick because there's a bug
+
+[33mcommit c2e914db9cd0168082f614305aa4cf87de2bf3f0[m
+Author: lucasbashir <lucassamson24@gmail.com>
+Date:   Mon Mar 6 17:25:52 2023 -0800
+
+    Added Location Feature
+
+[33mcommit 9d2089e1db249eaeec94cdbe555935e27c5c9a04[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Sun Mar 5 12:28:19 2023 -0800
+
+    Update settings.py
+
+[33mcommit 97b1919897b3a92fd08ab7d059ae2ee31aea3f00[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 11:20:04 2023 +0100
+
+    Update urls.py
+
+[33mcommit c40f60f5e79160a7b32a25a5d09889e47c71ff1a[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 11:16:58 2023 +0100
+
+    Update asgi.py
+
+[33mcommit c749c422cf89eebdf6701cbac038fdc1cdd5ab09[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 10:02:38 2023 +0100
+
+    Delete dump.rdb
+
+[33mcommit 2f4bcc59e4db2b0a5495e7ef6d0b5a820c98958c[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 03:45:49 2023 +0100
+
+    Update settings.py
+
+[33mcommit 4aa26a8d198569da024efbb495c00b2bba1c613f[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 03:43:30 2023 +0100
+
+    Delete routing.py
+
+[33mcommit a048a4a95473aa3ea3125d73e23e057b02e72d59[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 03:42:58 2023 +0100
+
+    Delete consumers.cpython-38.pyc
+
+[33mcommit 432f8c4c26a044575202028601edfe681768b878[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 03:41:48 2023 +0100
+
+    Update views.py
+
+[33mcommit bb0488017defaabbcc2b007fbfad4c0a5d6591be[m
+Author: lucasbashir <37589048+lucasbashir@users.noreply.github.com>
+Date:   Tue Feb 21 03:39:43 2023 +0100
+
+    Delete consumers.py
+
+[33mcommit 6fa980800a6b33ce958a349ac284b8dffb74b9e9[m
+Author: Lucas <lucas@DESKTOP-MRGN6VK.localdomain>
+Date:   Mon Feb 20 23:26:17 2023 +0100
+
+    readme.md
+
+[33mcommit 14c3966d0e4af9c347388dd14f1959447f09bdc6[m
+Author: Lucas <lucas@DESKTOP-MRGN6VK.localdomain>
+Date:   Fri Feb 17 15:46:44 2023 +0100
+
+    added readme.md ad requirements.txt
+
+[33mcommit 6f5003751c437566cedf5f4a127b73df473dd842[m
+Author: Lucas <lucas@DESKTOP-MRGN6VK.localdomain>
+Date:   Thu Feb 16 02:07:09 2023 +0100
+
+    alert ot working
+
+[33mcommit 9b1597bad66203b3f42559fcbd9c1e1e40e67091[m
+Author: Lucas <lucas@DESKTOP-MRGN6VK.localdomain>
+Date:   Wed Feb 15 03:13:12 2023 +0100
+
+    before alert feautre
+
+[33mcommit faaef1612e97c97d8d8fb13d1a9efb5051b41dc6[m
+Author: Lucas <lucas@DESKTOP-MRGN6VK.localdomain>
+Date:   Tue Feb 14 15:44:45 2023 +0100
+
+    paused attempt to add notifications feature
+
+[33mcommit 08cf202c158a4efde799c89a25ead5bbf865cb41[m
+Author: Lucas <lucas@DESKTOP-MRGN6VK.localdomain>
+Date:   Mon Feb 13 20:20:54 2023 +0100
+
+    first commit

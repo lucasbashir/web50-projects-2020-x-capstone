@@ -32,19 +32,36 @@ def all_alerts(request):
 
 def new_alert(request):
     if request.method == "POST":
-        content = request.POST.get("content")
-        state = request.POST.get("state")
-        lga = request.POST.get("lga")
-        category = request.POST.get("category")
+        content = request.POST["content"]
+        state = request.POST["state"]
+        lga = request.POST["lga"]
+        category = request.POST["category"]
         current_user = request.user
-        lat = request.POST.get("lat")
-        lng = request.POST.get("lng")
-        # Create a new alert
-        new_alert = Alert(content=content, state=state, lga=lga, user=current_user, category=category, latitude=lat, longitude=lng)
+        lat = request.POST["lat"]
+        lng = request.POST["lng"]
+
+        # Convert empty string inputs to None
+        if not lat:
+            lat = None
+        if not lng:
+            lng = None
+
+        # Create a new alert with latitude and longitude as optional fields
+        new_alert = Alert(
+            content=content,
+            state=state,
+            lga=lga,
+            user=current_user,
+            category=category,
+            latitude=lat,
+            longitude=lng
+        )
         new_alert.save()
+
         return HttpResponseRedirect(reverse("all_alerts"))
     else:
         return render(request, "new_alert.html")
+
 
 
 

@@ -53,6 +53,9 @@
         </select>
     </div>
 
+    <input type="hidden" name="lat" id="lat">
+    <input type="hidden" name="lng" id="lng">
+
     <div class="form-group">
         <label class="control-label">LGA of Origin</label>
         <select name="lga" id="lga" class="form-control select-lga" required>
@@ -62,7 +65,8 @@
         <input class="form-control" name="category" placeholder="Specify a category. For example, murder, theft, vandalism, etc" required>
     </div>
 
-    <button class="btn btn-danger" id="newalert">Alert</button>
+     <button type="button" onclick="getLocation()">Locate</button>
+    <button type="submit" class="btn btn-danger" id="newalert">Alert</button>
 
 </form>
 

@@ -175,7 +175,7 @@
   </footer>
   <!-- Footer -->
 <script>
-  function getLocation() {
+    function getLocation() {
     if (navigator.geolocation) {
       // Display confirmation prompt
       if (confirm("Allow this website to access your location?")) {
@@ -194,31 +194,10 @@
 
     console.log("Sending data: ", { lat: lat, lng: lng });
 
-    // Get the CSRF token from the form
-    var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    document.querySelector('#lat').value = lat;
+    document.querySelector('#lng').value = lng;
+}
 
-    // Get the form data using FormData
-    var form_data = new FormData(document.querySelector('#form-id'));
-
-    // Add the lat and lng values to the form data
-    form_data.append('lat', lat);
-    form_data.append('lng', lng);
-
-    // Send the AJAX request with the form data
-    $.ajax({
-      url: 'new_alert',
-      type: 'POST',
-      data: form_data,
-      contentType: false,
-      processData: false,
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader('X-CSRFToken', csrftoken);
-      },
-      error: function (xhr, status, error) {
-        alert('Fill the fields before submitting Alert');
-      }
-    });
-  }
 
 
 </script>
